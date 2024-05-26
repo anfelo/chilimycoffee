@@ -1,0 +1,24 @@
+title = "Testing"
+slug = "build-micro-rpg-with-zig-and-raylib"
+description = "Some text here to catch your attention"
+# created_at = 2024-05-23T05:45:00Z
+# updated_at = 2024-05-23T05:45:00Z
+
+chapters = [
+    # INFO: Add the chapter titles here
+    "Getting Started",
+    "Rendering Player"
+]
+
+chapter_parts = [
+    # INFO: Add the chapter parts here, make sure to use the correct chapter title
+
+    # Getting Started
+    { title = "Setup Environment", slug = "setup-environment", chapter = "Getting Started" },
+    { title = "Install Raylib", slug = "install-raylib", chapter = "Getting Started" },
+    { title = "Build Game", slug = "build-game", chapter = "Getting Started" },
+
+    # Rendering Player
+    { title = "Paint a Simple Player", slug = "paint-simple-player", chapter = "Rendering Player" },
+    { title = "Player Movement", slug = "player-movement", chapter = "Rendering Player" },
+]

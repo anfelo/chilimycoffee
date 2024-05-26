@@ -1,0 +1,95 @@
+/* General */
+
+:is(h1, h2, h3, h4, h5, h6) {
+  position: relative;
+}
+
+:is(h1, h2, h3, h4, h5, h6) > a[id] {
+  padding-left: calc(var(--pico-spacing) * 0.5);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+  transition: color var(--pico-transition) opacity var(--pico-transition);
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover > a[id] {
+  opacity: 0.25;
+}
+
+/* Helpers */
+
+.has-text-centered {
+  text-align: center;
+}
+
+.is-hidden {
+  display: none;
+}
+
+/* Auth Pages */
+
+@media (min-width: 768px) {
+  .auth-form-container {
+    max-width: 600px;
+    margin: auto;
+  }
+}
+
+/* Guide Page */
+.guide-layout {
+  display: grid;
+}
+
+#guide-menu {
+  grid-area: menu;
+}
+
+#guide-content {
+  grid-area: body;
+}
+
+@media (min-width: 768px) {
+  .guide-layout {
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 11rem 1fr;
+    grid-template-areas:
+      "menu header"
+      "menu table-of-content"
+      "menu body";
+    column-gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :is(h1, h2, h3, h4, h5, h6) > a[id] {
+    position: absolute;
+    left: 0;
+    padding-right: calc(var(--pico-spacing) * 0.5);
+    transform: translate(-100%);
+  }
+}
+
+/* Components */
+
+.flash-messages {
+  width: 500px;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.flash.hide {
+  animation: slideaway 300ms;
+  display: none;
+}
+
+@keyframes slideaway {
+  from {
+    display: block;
+  }
+  to {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+}

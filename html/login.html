@@ -1,0 +1,34 @@
+{{define "title"}}
+ChiliMyCoffee | Login
+{{end}}
+
+{{define "content"}}
+<main class="container">
+    <div class="auth-form-container">
+        <h1 class="has-text-centered">Login</h1>
+        <form method="POST" action="/login">
+            <input type="hidden" name="CSRF" value="{{with .CSRF}}{{.}}{{end}}" />
+
+            <fieldset>
+                <label> Email
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                    />
+                </label>
+
+                <label> Password
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                    />
+                </label>
+            </fieldset>
+
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+</main>
+{{end}}

@@ -1,0 +1,25 @@
+{{define "title"}}
+ChiliMyCoffee | Home
+{{end}}
+
+{{define "content"}}
+<main class="container">
+    {{with .FlashMessages}}
+    <div class="flash-messages">
+        {{ range . }}
+        <article class="flash pico-color-jade-200"> {{.}} </article>
+        {{end}}
+    </div>
+    {{end}}
+
+    <h3>Latest Posts</h3>
+
+    <article>
+        <h5>Build a micro RPG with Zig and Raylib</h5>
+        <p>
+            <small>Some text here to catch your attention</small>
+        </p>
+        <a href="/guides/build-micro-rpg-with-zig-and-raylib">Read more</a>
+    </article>
+</main>
+{{end}}

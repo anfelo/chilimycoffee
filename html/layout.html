@@ -1,0 +1,32 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{block "title" .}}{{end}}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css" />
+        <link rel="stylesheet" href="/static/css/ros-pine.min.css">
+        <link rel="stylesheet" href="/static/css/styles.css" />
+    </head>
+    <body>
+        <header class="container">
+            <nav>
+                <ul>
+                    <li><a href="/"><strong>ChiliMyCoffee</strong></a></li>
+                </ul>
+                <!-- <ul> -->
+                <!--     <li><a href="#">Guides</a></li> -->
+                <!--     <li><a href="#">About</a></li> -->
+                <!-- </ul> -->
+            </nav>
+        </header>
+
+        {{block "content" .}}{{end}}
+
+        <script src="/static/js/highlight.min.js"></script>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>
+{{end}}

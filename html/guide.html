@@ -1,0 +1,27 @@
+{{define "title"}}
+{{.Title}}
+{{end}}
+
+{{define "content"}}
+<main class="container guide-layout">
+    <aside id="guide-menu">
+        <nav>
+            {{range $chapter, $parts := .Chapters}}
+            <details open>
+                <summary>{{ $chapter }}</summary>
+                <ul>
+                    {{range $index, $part := $parts}}
+                    <li><a href="{{$part.Path}}" class="secondary">{{$part.Title}}</a></li>
+                    {{end}}
+                </ul>
+            </details>
+            <hr />
+            {{end}}
+        </nav>
+    </aside>
+
+    <div id="guide-content">
+        {{.Content}}
+    </div>
+</main>
+{{end}}
