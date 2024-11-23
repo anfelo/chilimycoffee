@@ -6,8 +6,8 @@ description = "Some text here to catch your attention"
 
 chapters = [
     # INFO: Add the chapter titles here
-    "Getting Started",
-    "Rendering Player"
+    { title = "Getting Started", slug = "getting-started" },
+    { title = "Rendering Player", slug = "rendering-player" },
 ]
 
 chapter_parts = [

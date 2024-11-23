@@ -77,6 +77,11 @@ func Home(c echo.Context) error {
 	return c.Render(http.StatusOK, "home", data)
 }
 
+type ChapterConfig struct {
+	Title string `toml:"title"`
+	Slug  string `toml:"slug"`
+}
+
 type ChapterPartConfig struct {
 	Title   string `toml:"title"`
 	Slug    string `toml:"slug"`
@@ -84,10 +89,10 @@ type ChapterPartConfig struct {
 }
 
 type GuideConfig struct {
-	Title        string              `toml:"title"`
-	Slug         string              `toml:"slug"`
-	Description  string              `toml:"description"`
-	Chapters     []string            `toml:"chapters"`
+	Title       string `toml:"title"`
+	Slug        string `toml:"slug"`
+	Description string `toml:"description"`
+	Chapters     []ChapterConfig     `toml:"chapters"`
 	ChapterParts []ChapterPartConfig `toml:"chapter_parts"`
 }
 
@@ -95,7 +100,7 @@ func Guide(c echo.Context) error {
 	guideSlug := c.Param("guide_slug")
 
 	var guideConf GuideConfig
-	_, err := toml.DecodeFile(fmt.Sprintf("./public/guides/%s/content.toml", guideSlug), &guideConf)
+	_, err := toml.DecodeFile(fmt.Sprintf("./html/guides/%s/content.toml", guideSlug), &guideConf)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -123,22 +128,22 @@ func GuidePart(c echo.Context) error {
 	guideSlug := c.Param("guide_slug")
 	partSlug := c.Param("part_slug")
 
-    var guideTitle string
+	var guideTitle string
 	var guideConf GuideConfig
-	_, err := toml.DecodeFile(fmt.Sprintf("./public/guides/%s/content.toml", guideSlug), &guideConf)
+	_, err := toml.DecodeFile(fmt.Sprintf("./html/guides/%s/content.toml", guideSlug), &guideConf)
 	if err != nil {
-        // TODO: Redirect to the home page maybe, with a flash message
+		// TODO: Redirect to the home page maybe, with a flash message
 	}
 
-    guideTitle = guideConf.Title
-	partContent, err := os.ReadFile(fmt.Sprintf("./public/guides/%s/%s.html", guideSlug, partSlug))
+	guideTitle = guideConf.Title
+	partContent, err := os.ReadFile(fmt.Sprintf("./html/guides/%s/%s.html", guideSlug, partSlug))
 	if err != nil {
-        guideTitle = "Not Found"
-        notFoundContent, err := os.ReadFile("./public/guides/not-found.html")
-        if err != nil {
-            // TODO: Redirect to the home page maybe
-        }
-        partContent = notFoundContent
+		guideTitle = "Not Found"
+		notFoundContent, err := os.ReadFile("./html/guides/not-found.html")
+		if err != nil {
+			// TODO: Redirect to the home page maybe
+		}
+		partContent = notFoundContent
 	}
 
 	chaptersInfo := make(map[string][]partData)
