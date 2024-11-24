@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"errors"
 	"fmt"
 	"html/template"
@@ -15,6 +16,9 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
+
+//go:embed html/*.html
+var files embed.FS
 
 type TemplateRegistry struct {
 	templates map[string]*template.Template
@@ -56,7 +60,11 @@ func main() {
 	e.GET("/guides/:guide_slug", Guide)
 	e.GET("/guides/:guide_slug/:part_slug", GuidePart)
 
-	e.Logger.Fatal(e.Start(":3000"))
+    port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	e.Logger.Fatal(e.Start(":" + port))
 }
 
 func Home(c echo.Context) error {
