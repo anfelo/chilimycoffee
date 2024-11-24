@@ -60,7 +60,7 @@ func main() {
 	e.GET("/guides/:guide_slug", Guide)
 	e.GET("/guides/:guide_slug/:part_slug", GuidePart)
 
-    port := os.Getenv("PORT")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
@@ -97,9 +97,9 @@ type ChapterPartConfig struct {
 }
 
 type GuideConfig struct {
-	Title       string `toml:"title"`
-	Slug        string `toml:"slug"`
-	Description string `toml:"description"`
+	Title        string              `toml:"title"`
+	Slug         string              `toml:"slug"`
+	Description  string              `toml:"description"`
 	Chapters     []ChapterConfig     `toml:"chapters"`
 	ChapterParts []ChapterPartConfig `toml:"chapter_parts"`
 }
