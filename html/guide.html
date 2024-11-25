@@ -6,11 +6,11 @@
 <main class="container guide-layout">
     <aside id="guide-menu">
         <nav>
-            {{range $chapter, $parts := .Chapters}}
+            {{range $i, $chapter := .Chapters}}
             <details open>
-                <summary>{{ $chapter }}</summary>
+                <summary>{{ $chapter.Title }}</summary>
                 <ul>
-                    {{range $index, $part := $parts}}
+                    {{range $j, $part := $chapter.Parts}}
                     <li><a href="{{$part.Path}}" class="secondary">{{$part.Title}}</a></li>
                     {{end}}
                 </ul>

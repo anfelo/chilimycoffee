@@ -123,13 +123,17 @@ func Guide(c echo.Context) error {
 }
 
 func GuidePart(c echo.Context) error {
-	type partData struct {
+	type PartData struct {
 		Title string
 		Path  string
 	}
-	type guideData struct {
+	type ChapterData struct {
+		Title string
+		Parts []PartData
+	}
+	type GuideData struct {
 		Title    string
-		Chapters map[string][]partData
+		Chapters []ChapterData
 		Content  template.HTML
 	}
 
@@ -154,16 +158,31 @@ func GuidePart(c echo.Context) error {
 		partContent = notFoundContent
 	}
 
-	chaptersInfo := make(map[string][]partData)
-	for _, part := range guideConf.ChapterParts {
-		info := partData{
-			Title: part.Title,
-			Path:  fmt.Sprintf("/guides/%s/%s", guideSlug, part.Slug),
+    // INFO: This builds the side menu with all the chapters and its parts
+    // We want to be able to construct in the html a structure like this:
+    // chapter 1
+    //      part 1.1
+    //      part 1.2
+    //      part 1.3
+    // chapter 2
+    //      part 2.1
+    //      part 2.2
+	chaptersInfo := []ChapterData{}
+	for _, chapter := range guideConf.Chapters {
+		chapterParts := []PartData{}
+		for _, part := range guideConf.ChapterParts {
+			if part.Chapter == chapter.Title {
+				partData := PartData{
+					Title: part.Title,
+					Path:  fmt.Sprintf("/guides/%s/%s", guideSlug, part.Slug),
+				}
+				chapterParts = append(chapterParts, partData)
+			}
 		}
-		chaptersInfo[part.Chapter] = append(chaptersInfo[part.Chapter], info)
+		chaptersInfo = append(chaptersInfo, ChapterData{Title: chapter.Title, Parts: chapterParts})
 	}
 
-	return c.Render(http.StatusOK, "guide", guideData{
+	return c.Render(http.StatusOK, "guide", GuideData{
 		Title:    guideTitle,
 		Chapters: chaptersInfo,
 		Content:  template.HTML(partContent),
