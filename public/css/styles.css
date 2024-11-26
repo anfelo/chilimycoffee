@@ -37,27 +37,32 @@
 
 /* Guide Page */
 .guide-layout {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 #guide-menu {
-  grid-area: menu;
+    width: 100%;
 }
 
 #guide-content {
-  grid-area: body;
+    width: 100%;
+    margin-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
-  .guide-layout {
-    grid-template-rows: auto auto 1fr;
-    grid-template-columns: 11rem 1fr;
-    grid-template-areas:
-      "menu header"
-      "menu table-of-content"
-      "menu body";
-    column-gap: 3rem;
-  }
+    .guide-layout {
+        flex-direction: row;
+    }
+
+    #guide-menu {
+        width: 250px;
+    }
+
+    #guide-content {
+        width: calc(100% - 250px);
+    }
 }
 
 @media (min-width: 1024px) {

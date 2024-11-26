@@ -1,0 +1,21 @@
+title = "My C Notes"
+slug = "my-c-notes"
+description = "TODO"
+# created_at = 2024-05-23T05:45:00Z
+# updated_at = 2024-05-23T05:45:00Z
+
+chapters = [
+    # INFO: Add the chapter titles here
+    { title = "Introduction", slug = "intro" },
+    { title = "Getting Started", slug = "getting-started" },
+]
+
+chapter_parts = [
+    # INFO: Add the chapter parts here, make sure to use the correct chapter title
+
+    # Introduction
+    { title = "What is C?", slug = "intro", chapter = "Introduction" },
+
+    # Installation
+    { title = "Installation", slug = "installation", chapter = "Getting Started" },
+]

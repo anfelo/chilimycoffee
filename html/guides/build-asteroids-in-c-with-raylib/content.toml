@@ -1,0 +1,22 @@
+title = "Build Asteroids In C With Raylib"
+slug = "build-asteroids-in-c-with-raylib"
+description = "TODO"
+# created_at = 2024-05-23T05:45:00Z
+# updated_at = 2024-05-23T05:45:00Z
+
+chapters = [
+    # INFO: Add the chapter titles here
+    { title = "Introduction", slug = "intro" },
+    { title = "Getting Started", slug = "getting-started" },
+]
+
+chapter_parts = [
+    # INFO: Add the chapter parts here, make sure to use the correct chapter title
+
+    # Introduction
+    { title = "What are we building?", slug = "intro", chapter = "Introduction" },
+
+    # Getting Started
+    { title = "Setup Environment", slug = "setup-environment", chapter = "Getting Started" },
+    { title = "Install Raylib", slug = "install-raylib", chapter = "Getting Started" },
+]

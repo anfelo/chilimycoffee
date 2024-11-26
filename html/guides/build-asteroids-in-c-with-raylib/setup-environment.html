@@ -1,0 +1,79 @@
+<h3>Setup Environment</h3>
+
+<p>
+  Before we start coding the actual game we need to make sure that we have all
+  the tools in place, installed in our computer.
+</p>
+
+<p>
+  We will be making a game in C and for that to happen, our computer must be
+  able to compile the code that we write. Luckily, almost every operating system
+  comes with a C compiler installed that we can use. Depending on which
+  operating system (OS) you are running on, you will use one or the other. But
+  don't worry I will guide you through the entire process no matter what
+  computer you are using.
+</p>
+
+<p>Let us first check that you are all set.</p>
+
+<h3>macOS</h3>
+<p>
+  On macOS the C
+  <a href="/guides/build-your-own-interpreter/what-are-compilers">compilers</a>
+  are typically installed as part of the Xcode Command Line Tools. You have two
+  options here.
+</p>
+<p>
+  Clang (from the LLVM Project) is the default C, C++, and Objective-C compiler
+  on macOS. It is included with the Xcode Command Line Tools. You can verify
+  that it is installed by running:
+</p>
+<pre class="language-bash"><code>$ clang --version</code></pre>
+
+<p>
+  The other alternative is GCC (GNU Compiler Collection) which can be installed
+  using a package manager like <a href="https://brew.sh/">Homebrew</a> like this:
+  <code>$ brew install gcc</code>
+</p>
+
+<p>Once installed you can verify the version by running on your terminal:</p>
+<pre class="language-bash"><code>$ gcc --version</code></pre>
+
+<p>
+  If none of those is available in your machine, check the
+  <a href="/guides/my-c-notes/installation#macos">installation guide</a>.
+</p>
+
+<h3>Windows</h3>
+
+<p>TODO: Add the windows instructions.</p>
+
+<h3>Linux</h3>
+
+<p>
+  In Linux it depends on the distribution but the most common one GCC
+  (GNU Compiler Collection). It is the default compiler in most distros. Make
+  sure that it is installed by running the following command:
+</p>
+
+<pre class="language-bash"><code>$ gcc --version</code></pre>
+
+<p>
+  An alternative would be clang from the LLVM Project.You can also check if it
+  is installed:
+</p>
+
+<pre class="language-bash"><code>$ clang --version</code></pre>
+
+<p>
+  If none of those are installed in your Linux machine, check the
+  <a href="/guides/my-c-notes/installation#linux">installation guide</a>.
+</p>
+
+<br />
+
+<p>
+  This is all that you will need for now, you are almost ready to start hacking.
+  Now we will setup Raylib, a game library that will make our lives easier when
+  trying to paint some pixels into the screen, and much more.
+</p>
