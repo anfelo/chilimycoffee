@@ -1,4 +1,4 @@
-<h3>Installation</h3>
+<h1>Installation</h1>
 
 <h3 id="macos">macOS</h3>
 <p>
@@ -8,12 +8,27 @@
   options here.
 </p>
 
+<h4>Xcode Command Line Tools</h4>
+<p>
+  First we need to make sure that the xcode command line tools are installed:
+</p>
+<pre class="language-bash"><code>xcode-select --install</code></pre>
+<p>
+  After that you should be able to run the following command to verify the
+  installation:
+</p>
+<pre class="language-bash"><code>xcode-select -p
+
+# /Library/Developer/CommandLineTools
+</code></pre>
+
 <h4>Clang</h4>
 <p>
-  Is the default C, C++, and Objective-C compiler on macOS. It is included with
-  the Xcode Command Line Tools. You can verify that it is installed by running:
+  <a href="https://clang.llvm.org/">Clang (from the LLVM Project)</a> is the
+  default C, C++, and Objective-C compiler on macOS. It is included with the
+  Xcode Command Line Tools. You can verify that it is installed by running:
 </p>
-<pre class="language-bash"><code>$ clang --version</code></pre>
+<pre class="language-bash"><code>clang --version</code></pre>
 
 <p>In my machine I get this after running the previous in my terminal:</p>
 
@@ -25,15 +40,98 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 
 <h4>GCC</h4>
 <p>
-  It is not preinstalled, but it can be easily installed using a package manger
-  like Homebrew <code>brew install gcc</code>.
+  The other alternative is
+  <a href="https://gcc.gnu.org/">GCC (GNU Compiler Collection)</a> which can be
+  installed using a package manager like
+  <a href="https://brew.sh/">Homebrew</a> like this:
+  <code>brew install gcc</code>
 </p>
 
+<p>To install Homebrew run the following command in your terminal:</p>
+<pre
+  class="language-bash"
+><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+
+<p>After the installation completes, you can now install gcc:</p>
+<pre class="language-bash"><code>brew install gcc</code></pre>
+
 <p>Once installed you can verify the version by running on your terminal:</p>
-<pre class="language-bash"><code>$ gcc --version</code></pre>
+<pre class="language-bash"><code>gcc --version</code></pre>
 
 <h3 id="linux">Linux</h3>
-<p>TODO</p>
+
+<h4>GCC</h4>
+<p>
+  On Linux it depends on the distribution but the most common one is
+  <a href="https://gcc.gnu.org/">GCC (GNU Compiler Collection)</a>. It is the
+  default compiler in most distros. For example, Ubuntu, Fedora, Debian, and
+  Arch include GCC in their default repositories or pre-install it with
+  developer tools.
+</p>
+
+<p>You can install it through your favorite package manager:</p>
+<pre class="language-bash"><code>#Ubuntu/Debian
+sudo apt intall gcc
+
+# Fedora:
+sudo dnf install gcc
+
+# Arch:
+sudo pacman -S gcc
+</code></pre>
+
+<p>Verify the installation by running the following command:</p>
+
+<pre class="language-bash"><code>gcc --version</code></pre>
+
+<h4>Clang</h4>
+<p>
+  An alternative would be
+  <a href="https://clang.llvm.org/">Clang (from the LLVM Project)</a>. You can
+  also install with a package manager:
+</p>
+
+<pre class="language-bash"><code># Ubuntu/Debian
+sudo apt intall clang
+
+# Fedora:
+sudo dnf install clang
+
+# Arch:
+sudo pacman -S clang
+</code></pre>
+
+<p>Then, verify the installation:</p>
+
+<pre class="language-bash"><code>clang --version</code></pre>
 
 <h3 id="windows">Windows</h3>
-<p>TODO</p>
+<p>
+  On windows there a many ways to get a C, C++, compatible compiler but they are
+  not typically included by default.
+</p>
+<p>
+  In this guide I will just show you the way that I prefer to do it and mention
+  briefly other alternatives.
+</p>
+
+<h4>Microsoft C/C++ Compiler (MSVC)</h4>
+<p>
+  This is the standard compiler for C and C++ on Windows. It is not
+  pre-installed so we need to first install it. It is included in the
+  installation of Microsoft Visual Studio.
+</p>
+
+<p>
+  <b>Option 1:</b> Install
+  <a href="https://visualstudio.microsoft.com/downloads/"
+    >Visual Studio Community</a
+  >
+</p>
+<p>
+  If you use Visual Studio as your main editor and compiler you are all set.
+</p>
+
+<p><b>Option 2:</b> Install the <a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">Build Tools for Visual Studio</a></p>
+
+<p></p>

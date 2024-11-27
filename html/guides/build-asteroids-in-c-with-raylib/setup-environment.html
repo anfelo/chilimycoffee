@@ -18,26 +18,11 @@
 
 <h3>macOS</h3>
 <p>
-  On macOS the C
-  <a href="/guides/build-your-own-interpreter/what-are-compilers">compilers</a>
-  are typically installed as part of the Xcode Command Line Tools. You have two
-  options here.
+    On macOS check that you have installed either clang or gcc:
 </p>
-<p>
-  Clang (from the LLVM Project) is the default C, C++, and Objective-C compiler
-  on macOS. It is included with the Xcode Command Line Tools. You can verify
-  that it is installed by running:
-</p>
-<pre class="language-bash"><code>$ clang --version</code></pre>
-
-<p>
-  The other alternative is GCC (GNU Compiler Collection) which can be installed
-  using a package manager like <a href="https://brew.sh/">Homebrew</a> like this:
-  <code>$ brew install gcc</code>
-</p>
-
-<p>Once installed you can verify the version by running on your terminal:</p>
-<pre class="language-bash"><code>$ gcc --version</code></pre>
+<pre class="language-bash"><code>clang --version</code></pre>
+<p>Or:</p>
+<pre class="language-bash"><code>gcc --version</code></pre>
 
 <p>
   If none of those is available in your machine, check the
@@ -51,19 +36,11 @@
 <h3>Linux</h3>
 
 <p>
-  In Linux it depends on the distribution but the most common one GCC
-  (GNU Compiler Collection). It is the default compiler in most distros. Make
-  sure that it is installed by running the following command:
+Check if clang or gcc are already installed in your system:
 </p>
-
-<pre class="language-bash"><code>$ gcc --version</code></pre>
-
-<p>
-  An alternative would be clang from the LLVM Project.You can also check if it
-  is installed:
-</p>
-
-<pre class="language-bash"><code>$ clang --version</code></pre>
+<pre class="language-bash"><code>clang --version</code></pre>
+<p>Or:</p>
+<pre class="language-bash"><code>gcc --version</code></pre>
 
 <p>
   If none of those are installed in your Linux machine, check the
