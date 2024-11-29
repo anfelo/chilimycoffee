@@ -51,6 +51,11 @@
   margin-bottom: 3rem;
 }
 
+.guide-menu-toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media (min-width: 768px) {
   .guide-layout {
     flex-direction: row;

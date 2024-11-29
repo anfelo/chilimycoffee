@@ -24,9 +24,11 @@
 
 <h4>Clang</h4>
 <p>
-  <a href="https://clang.llvm.org/">Clang (from the LLVM Project)</a> is the
-  default C, C++, and Objective-C compiler on macOS. It is included with the
-  Xcode Command Line Tools. You can verify that it is installed by running:
+  <a href="https://clang.llvm.org/" target="_blank"
+    >Clang (from the LLVM Project)</a
+  >
+  is the default C, C++, and Objective-C compiler on macOS. It is included with
+  the Xcode Command Line Tools. You can verify that it is installed by running:
 </p>
 <pre class="language-bash"><code>clang --version</code></pre>
 
@@ -41,9 +43,11 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 <h4>GCC</h4>
 <p>
   The other alternative is
-  <a href="https://gcc.gnu.org/">GCC (GNU Compiler Collection)</a> which can be
-  installed using a package manager like
-  <a href="https://brew.sh/">Homebrew</a> like this:
+  <a href="https://gcc.gnu.org/" target="_blank"
+    >GCC (GNU Compiler Collection)</a
+  >
+  which can be installed using a package manager like
+  <a href="https://brew.sh/" target="_blank">Homebrew</a> like this:
   <code>brew install gcc</code>
 </p>
 
@@ -63,10 +67,11 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 <h4>GCC</h4>
 <p>
   On Linux it depends on the distribution but the most common one is
-  <a href="https://gcc.gnu.org/">GCC (GNU Compiler Collection)</a>. It is the
-  default compiler in most distros. For example, Ubuntu, Fedora, Debian, and
-  Arch include GCC in their default repositories or pre-install it with
-  developer tools.
+  <a href="https://gcc.gnu.org/" target="_blank"
+    >GCC (GNU Compiler Collection)</a
+  >. It is the default compiler in most distros. For example, Ubuntu, Fedora,
+  Debian, and Arch include GCC in their default repositories or pre-install it
+  with developer tools.
 </p>
 
 <p>You can install it through your favorite package manager:</p>
@@ -87,8 +92,9 @@ sudo pacman -S gcc
 <h4>Clang</h4>
 <p>
   An alternative would be
-  <a href="https://clang.llvm.org/">Clang (from the LLVM Project)</a>. You can
-  also install with a package manager:
+  <a href="https://clang.llvm.org/" target="_blank"
+    >Clang (from the LLVM Project)</a
+  >. You can also install with a package manager:
 </p>
 
 <pre class="language-bash"><code># Ubuntu/Debian
@@ -123,15 +129,65 @@ sudo pacman -S clang
 </p>
 
 <p>
-  <b>Option 1:</b> Install
-  <a href="https://visualstudio.microsoft.com/downloads/"
+  <b>Option 1:</b> Download and Install
+  <a href="https://visualstudio.microsoft.com/downloads/" target="_blank"
     >Visual Studio Community</a
   >
 </p>
 <p>
-  If you use Visual Studio as your main editor and compiler you are all set.
+  Make sure to also select one C/C++ workload in the installation wizard. If you
+  use Visual Studio as your main editor and compiler you are all set.
 </p>
 
-<p><b>Option 2:</b> Install the <a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">Build Tools for Visual Studio</a></p>
+<p>
+  <b>Option 2:</b> Download and Install the
+  <a
+    href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022"
+    target="_blank"
+    >Build Tools for Visual Studio</a
+  >
+</p>
 
-<p></p>
+<p>
+  You will need to select the <b>Desktop development with C++</b> workload. The
+  installation process will install the right tools for C/C++ development, this
+  includes compiler, likers, assemblers, and other build tools. There will be
+  separate x86 and x64 compilers and tools to build code for x86, x64, ARM and
+  ARM64 targets.
+</p>
+
+<p>
+  To start using the compiler and linker, we first need to setup the command
+  line environment. Depending on which is the target of your game, you will find
+  a <code>.bat</code> program called <code>vcvars[target].bat</code>. For x64,
+  typically found in:
+</p>
+
+<pre><code>\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build</code></pre>
+
+<p>
+  This batch program will configure your terminal with the correct environment
+  variables. You can alternatively run the general
+  <code>vcvarsall.bat</code> program with the correct arguments to setup your
+  environment. For example:
+</p>
+
+<pre class="language-bash"><code>.\vcvarsall.bat x64</code></pre>
+
+<p>This is will configure the compiler and other tools for x64 build.</p>
+
+<p>
+  After configuring your environment, you can now verify that you have the
+  compiler program available in your terminal:
+</p>
+
+<pre class="language-bash"><code>cl --version</code></pre>
+
+<p>
+  You can read more in detail in this article:
+  <a
+    href="https://learn.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-170"
+    target="_blank"
+    >Use the Microsoft C++ toolset from the command line</a
+  >
+</p>

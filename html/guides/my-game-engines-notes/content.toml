@@ -1,0 +1,17 @@
+title = "My Game Engines Notes"
+slug = "my-game-engines-notes"
+description = "TODO"
+# created_at = 2024-05-23T05:45:00Z
+# updated_at = 2024-05-23T05:45:00Z
+
+chapters = [
+    # INFO: Add the chapter titles here
+    { title = "Game Engines", slug = "game-engines" },
+]
+
+chapter_parts = [
+    # INFO: Add the chapter parts here, make sure to use the correct chapter title
+
+    # Raylib
+    { title = "Raylib", slug = "raylib", chapter = "Game Engines" },
+]
