@@ -108,3 +108,23 @@
     opacity: 0;
   }
 }
+
+pre {
+  position: relative;
+  overflow: visible;
+}
+
+[data-tooltip]:is(span) {
+  border: none;
+  cursor: pointer;
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.copy-code-btn:hover {
+    color: var(--pico-primary-hover);
+}
