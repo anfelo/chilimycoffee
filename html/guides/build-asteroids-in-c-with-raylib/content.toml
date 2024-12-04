@@ -19,4 +19,5 @@ chapter_parts = [
     # Getting Started
     { title = "Setup Environment", slug = "setup-environment", chapter = "Getting Started" },
     { title = "Install Raylib", slug = "install-raylib", chapter = "Getting Started" },
+    { title = "Create Project", slug = "create-project", chapter = "Getting Started" },
 ]
