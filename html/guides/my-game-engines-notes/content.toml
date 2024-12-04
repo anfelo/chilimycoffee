@@ -6,12 +6,14 @@ description = "TODO"
 
 chapters = [
     # INFO: Add the chapter titles here
-    { title = "Game Engines", slug = "game-engines" },
+    { title = "Raylib", slug = "raylib" },
 ]
 
 chapter_parts = [
     # INFO: Add the chapter parts here, make sure to use the correct chapter title
 
     # Raylib
-    { title = "Raylib", slug = "raylib", chapter = "Game Engines" },
+    { title = "Why Raylib?", slug = "why-raylib", chapter = "Raylib" },
+    { title = "Installation", slug = "raylib-installation", chapter = "Raylib" },
+    { title = "Getting Started", slug = "getting-started-with-raylib", chapter = "Raylib" },
 ]
