@@ -11,6 +11,9 @@ import (
 	"os"
 
 	"github.com/BurntSushi/toml"
+	"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown/html"
+	"github.com/gomarkdown/markdown/parser"
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
@@ -148,25 +151,36 @@ func GuidePart(c echo.Context) error {
 	}
 
 	guideTitle = guideConf.Title
-	partContent, err := os.ReadFile(fmt.Sprintf("./html/guides/%s/%s.html", guideSlug, partSlug))
+    partContent, err := os.ReadFile(fmt.Sprintf("./html/guides/%s/%s.md", guideSlug, partSlug))
 	if err != nil {
 		guideTitle = "Not Found"
-		notFoundContent, err := os.ReadFile("./html/guides/not-found.html")
+		notFoundContent, err := os.ReadFile("./html/guides/not-found.md")
 		if err != nil {
 			// TODO: Redirect to the home page maybe
 		}
 		partContent = notFoundContent
 	}
 
-    // INFO: This builds the side menu with all the chapters and its parts
-    // We want to be able to construct in the html a structure like this:
-    // chapter 1
-    //      part 1.1
-    //      part 1.2
-    //      part 1.3
-    // chapter 2
-    //      part 2.1
-    //      part 2.2
+    mdBytes := []byte(partContent)
+    extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
+    p := parser.NewWithExtensions(extensions)
+    doc := p.Parse(mdBytes)
+
+    htmlFlags := html.CommonFlags | html.HrefTargetBlank
+    opts := html.RendererOptions{Flags: htmlFlags}
+    renderer := html.NewRenderer(opts)
+
+    contentHTML := string(markdown.Render(doc, renderer))
+
+	// INFO: This builds the side menu with all the chapters and its parts
+	// We want to be able to construct in the html a structure like this:
+	// chapter 1
+	//      part 1.1
+	//      part 1.2
+	//      part 1.3
+	// chapter 2
+	//      part 2.1
+	//      part 2.2
 	chaptersInfo := []ChapterData{}
 	for _, chapter := range guideConf.Chapters {
 		chapterParts := []PartData{}
@@ -185,7 +199,7 @@ func GuidePart(c echo.Context) error {
 	return c.Render(http.StatusOK, "guide", GuideData{
 		Title:    guideTitle,
 		Chapters: chaptersInfo,
-		Content:  template.HTML(partContent),
+		Content:  template.HTML(contentHTML),
 	})
 }
 

@@ -7,6 +7,7 @@ require github.com/labstack/echo/v4 v4.12.0
 require (
 	github.com/BurntSushi/toml v1.3.2 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/gomarkdown/markdown v0.0.0-20241204151404-87d094f40b92 // indirect
 	github.com/gorilla/context v1.1.2 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/sessions v1.2.2 // indirect
