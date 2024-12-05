@@ -8,6 +8,7 @@ chapters = [
     # INFO: Add the chapter titles here
     { title = "Introduction", slug = "intro" },
     { title = "Getting Started", slug = "getting-started" },
+    { title = "Asteroids Game", slug = "asteroids-game" },
 ]
 
 chapter_parts = [
@@ -20,4 +21,7 @@ chapter_parts = [
     { title = "Setup Environment", slug = "setup-environment", chapter = "Getting Started" },
     { title = "Install Raylib", slug = "install-raylib", chapter = "Getting Started" },
     { title = "Create Project", slug = "create-project", chapter = "Getting Started" },
+
+    # Asteroids Game
+    { title = "Player Ship", slug = "player-ship", chapter = "Asteroids Game" },
 ]

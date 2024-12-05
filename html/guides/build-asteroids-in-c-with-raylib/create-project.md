@@ -119,4 +119,59 @@ gcc ./src/main.c -o ./bin/Asteroids
 ```
 
 Something is not working correctly. The compiler is not able to find
-`raylib.h`
+`raylib.h`. You should get the following message in your terminal:
+
+```bash
+main.c:2:10: fatal error: 'raylib.h' file not found
+#include "raylib.h"
+         ^~~~~~~~~~
+1 error generated.
+```
+
+This is easy to fix. We just need a copy of the raylib header file in our project.
+Create a new file called `raylib.h`. And copy the contents from the [source file](https://github.com/raysan5/raylib/blob/master/src/raylib.h).
+
+Let us try again to compile:
+
+```bash
+gcc ./src/main.c -o ./bin/Asteroids
+```
+
+Oops that didn't work. Apparently the compiler found the `raylib.h` file but now
+is not able to link to the library referenced inside the header file.
+
+We need to tell the compiler where can the raylib library be found. We do this by adding 
+different arguments and flags to the command that we are running.
+
+If you [installed raylib](/guides/my-game-engines-notes/raylib-installation) correctly, you should be able to run the following command:
+
+#### On Mac
+
+If you used Homebrew to install raylib, you should be able to run the following:
+
+```bash
+gcc ./src/main.c $(pkg-config --libs --cflags raylib) -o ./bin/Asteroids
+```
+
+If you have compiled raylib by your own, make sure to copy the `libraylib.a` (This is the output of the compilation process of raylib) to the root of our project and then run the following:
+
+```bash
+gcc -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL libraylib.a ./src/main.c -o ./bin/Asteroids
+```
+
+These new arguments tell the compiler what are the dependencies that our program needs to run. Internally the compiler will link to those libraries if it founds them installed in your system.
+
+You should see no output in the terminal. This means that everything went well. Now you are ready to run the executable of the game.
+
+```bash
+./bin/Asteroids
+```
+
+Now you should see a window popup like this one:
+
+Image of the window:
+[TODO]
+
+There we go. We have now a window where we can paint objects and start building our game.
+
+Finally we are ready to start building our game. We will first create a player ship and move around the screen.
