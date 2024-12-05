@@ -129,6 +129,7 @@ func GuidePart(c echo.Context) error {
 	type PartData struct {
 		Title string
 		Path  string
+        IsActive bool
 	}
 	type ChapterData struct {
 		Title string
@@ -189,6 +190,7 @@ func GuidePart(c echo.Context) error {
 				partData := PartData{
 					Title: part.Title,
 					Path:  fmt.Sprintf("/guides/%s/%s", guideSlug, part.Slug),
+                    IsActive: part.Slug == partSlug,
 				}
 				chapterParts = append(chapterParts, partData)
 			}

@@ -11,7 +11,11 @@
                 <summary>{{ $chapter.Title }}</summary>
                 <ul>
                     {{range $j, $part := $chapter.Parts}}
-                    <li><a href="{{$part.Path}}" class="secondary">{{$part.Title}}</a></li>
+                        {{if $part.IsActive}}
+                            <li><a href="{{$part.Path}}" class="secondary active">{{$part.Title}}</a></li>
+                        {{else}}
+                            <li><a href="{{$part.Path}}" class="secondary">{{$part.Title}}</a></li>
+                        {{end}}
                     {{end}}
                 </ul>
             </details>

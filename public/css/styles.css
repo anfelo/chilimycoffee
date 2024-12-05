@@ -16,6 +16,10 @@
   opacity: 0.25;
 }
 
+:is(a).active {
+  color: var(--pico-primary-hover);
+}
+
 /* Helpers */
 
 .has-text-centered {
