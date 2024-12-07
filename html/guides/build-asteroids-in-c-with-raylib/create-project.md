@@ -58,7 +58,6 @@ Printing `"Hello World"` is fine but we want to see more action and jump already
 to code the game so let us create our game window using raylib.
 
 ```c
-#include "stdio.h"
 #include "raylib.h"
 
 int main() {

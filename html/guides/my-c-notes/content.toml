@@ -8,6 +8,7 @@ chapters = [
     # INFO: Add the chapter titles here
     { title = "Introduction", slug = "intro" },
     { title = "Getting Started", slug = "getting-started" },
+    { title = "Managing Memory", slug = "managing-memory" }
 ]
 
 chapter_parts = [
@@ -18,4 +19,7 @@ chapter_parts = [
 
     # Installation
     { title = "Installation", slug = "installation", chapter = "Getting Started" },
+
+    # Managing Memory
+    { title = "Stack vs. Heap", slug = "stack-vs-heap", chapter = "Managing Memory" },
 ]
