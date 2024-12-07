@@ -12,9 +12,9 @@
                 <ul>
                     {{range $j, $part := $chapter.Parts}}
                         {{if $part.IsActive}}
-                            <li><a href="{{$part.Path}}" class="secondary active">{{$part.Title}}</a></li>
+                            <li><a href="{{$part.Path}}" aria-current="page" class="secondary">{{$part.Title}}</a></li>
                         {{else}}
-                            <li><a href="{{$part.Path}}" class="secondary">{{$part.Title}}</a></li>
+                            <li><a href="{{$part.Path}}" role="link" class="secondary">{{$part.Title}}</a></li>
                         {{end}}
                     {{end}}
                 </ul>

@@ -1,5 +1,9 @@
 /* General */
 
+body {
+  width: 100vw;
+}
+
 :is(h1, h2, h3, h4, h5, h6) {
   position: relative;
 }
@@ -130,5 +134,72 @@ pre {
 }
 
 .copy-code-btn:hover {
-    color: var(--pico-primary-hover);
+  color: var(--pico-primary-hover);
+}
+
+/* Main Menu */
+main > aside nav details ul {
+  border-left: var(--pico-border-width) solid var(--pico-muted-border-color);
+}
+
+main > aside nav details ul:first-of-type {
+  margin: 0;
+  padding: 0;
+}
+
+main > aside {
+  --pico-font-size: 16px;
+  font-size: var(--pico-font-size);
+}
+
+main > aside nav details[open] > summary {
+  margin-bottom: calc(var(--pico-spacing) * 0.5);
+}
+
+main > aside nav details summary {
+  font-weight: 600;
+  line-height: var(--pico-line-height);
+}
+
+nav ol:last-of-type,
+nav ul:last-of-type {
+  margin-right: calc(var(--pico-nav-element-spacing-horizontal) * -1);
+}
+
+main > aside nav details ul li a[aria-current] {
+  border-color: var(--pico-primary);
+  color: var(--pico-primary-hover);
+  font-weight: 600;
+}
+
+main > aside nav details ul li a[aria-current]:hover {
+  text-decoration: none;
+}
+
+main > aside nav details ul li a:hover {
+  border-color: var(--pico-secondary-underline);
+}
+
+main > aside nav details ul li {
+  margin: 0;
+  padding: calc(var(--pico-nav-element-spacing-vertical) * 0.25) 0;
+}
+
+nav li :where(a, [role="link"]):not(:hover) {
+  text-decoration: none;
+}
+
+main > aside nav details ul li a {
+  margin: 0;
+  margin-left: calc(var(--pico-border-width) * -0.5);
+  padding: 0;
+  padding-left: calc(var(--pico-nav-element-spacing-horizontal) * 1.5);
+  border-left: var(--pico-border-width) solid transparent;
+  border-radius: 0;
+  font-weight: 400;
+}
+
+:where(nav li):before {
+  float: left;
+  content: "\200b";
 }
