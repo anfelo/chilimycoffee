@@ -1,7 +1,7 @@
 /* General */
 
 body {
-  width: 100vw;
+  /* width: 100vw; */
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -176,7 +176,7 @@ main > aside nav details ul li a[aria-current]:hover {
   text-decoration: none;
 }
 
-main > aside nav details ul li a:hover {
+main > aside nav details ul li a:not([aria-current]):hover {
   border-color: var(--pico-secondary-underline);
 }
 

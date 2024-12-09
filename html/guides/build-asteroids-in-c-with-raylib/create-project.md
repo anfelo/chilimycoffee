@@ -168,8 +168,7 @@ You should see no output in the terminal. This means that everything went well. 
 
 Now you should see a window popup like this one:
 
-Image of the window:
-[TODO]
+<img src="https://fly.storage.tigris.dev/cmc-bucket/images/raylib_create_window.png" alt="Image of asimple raylib window" width="600" />
 
 There we go. We have now a window where we can paint objects and start building our game.
 
