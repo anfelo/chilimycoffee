@@ -73,11 +73,16 @@ body {
     width: 250px;
   }
 
-  #guide-content {
-    width: calc(100% - 250px);
+  #contents-menu {
+    width: 250px;
   }
 
-  #guide-menu nav {
+  #guide-content {
+    width: calc(100% - 500px);
+  }
+
+  #guide-menu nav,
+  #contents-menu nav {
     position: sticky;
     top: 2rem;
   }
@@ -138,11 +143,11 @@ pre {
 }
 
 /* Main Menu */
-main > aside nav details ul {
+main > aside nav ul {
   border-left: var(--pico-border-width) solid var(--pico-muted-border-color);
 }
 
-main > aside nav details ul:first-of-type {
+main > aside nav ul:first-of-type {
   margin: 0;
   padding: 0;
 }
@@ -161,26 +166,32 @@ main > aside nav details summary {
   line-height: var(--pico-line-height);
 }
 
+main > aside nav summary {
+  font-weight: 600;
+  line-height: var(--pico-line-height);
+  margin-bottom: calc(var(--pico-spacing) * 0.5);
+}
+
 nav ol:last-of-type,
 nav ul:last-of-type {
   margin-right: calc(var(--pico-nav-element-spacing-horizontal) * -1);
 }
 
-main > aside nav details ul li a[aria-current] {
+main > aside nav ul li a[aria-current] {
   border-color: var(--pico-primary);
   color: var(--pico-primary-hover);
   font-weight: 600;
 }
 
-main > aside nav details ul li a[aria-current]:hover {
+main > aside nav ul li a[aria-current]:hover {
   text-decoration: none;
 }
 
-main > aside nav details ul li a:not([aria-current]):hover {
+main > aside nav ul li a:not([aria-current]):hover {
   border-color: var(--pico-secondary-underline);
 }
 
-main > aside nav details ul li {
+main > aside nav ul li {
   margin: 0;
   padding: calc(var(--pico-nav-element-spacing-vertical) * 0.25) 0;
 }
@@ -189,7 +200,7 @@ nav li :where(a, [role="link"]):not(:hover) {
   text-decoration: none;
 }
 
-main > aside nav details ul li a {
+main > aside nav ul li a {
   margin: 0;
   margin-left: calc(var(--pico-border-width) * -0.5);
   padding: 0;

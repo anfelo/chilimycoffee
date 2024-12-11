@@ -26,5 +26,18 @@
     <div id="guide-content">
         {{.Content}}
     </div>
+
+    {{if .TableOfContents}}
+        <aside id="contents-menu">
+            <nav>
+                <summary>Content</summary>
+                <ul>
+                    {{range $i, $heading := .TableOfContents}}
+                        <li><a href="#{{ $heading.ID }}" role="link" class="secondary">{{ $heading.Title }}</a></li>
+                    {{end}}
+                </ul>
+            </nav>
+        </aside>
+    {{end}}
 </main>
 {{end}}

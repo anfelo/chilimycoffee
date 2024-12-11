@@ -7,6 +7,7 @@ description = "TODO"
 chapters = [
     # INFO: Add the chapter titles here
     { title = "Raylib", slug = "raylib" },
+    { title = "OpenGL", slug = "opengl" },
 ]
 
 chapter_parts = [
@@ -16,4 +17,7 @@ chapter_parts = [
     { title = "Why Raylib?", slug = "why-raylib", chapter = "Raylib" },
     { title = "Installation", slug = "raylib-installation", chapter = "Raylib" },
     { title = "Getting Started", slug = "getting-started-with-raylib", chapter = "Raylib" },
+
+    # OpenGL
+    { title = "What is OpenGL?", slug = "what-is-opengl", chapter = "OpenGL" }
 ]

@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
     hljs.highlightAll();
 
     const flashMessages = document.querySelectorAll(".flash");
-
     const FLASH_DELAY = 3000;
     flashMessages.forEach((flash, i) => {
 
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const codeBlocks = document.querySelectorAll("pre");
-
     if (codeBlocks.length) {
         codeBlocks.forEach(block => {
             const copyIconHTML = '<i class="fa-regular fa-copy"></i>';
@@ -48,5 +46,28 @@ document.addEventListener("DOMContentLoaded", function() {
         } catch (e) {
             console.log('Failed to copy!', e);
         }
+    }
+
+    const headings = document.querySelectorAll("h1, h2, h3, h4")
+    const contentLinks = document.querySelectorAll("#contents-menu li a")
+    if (headings.length && contentLinks.length) {
+        document.addEventListener('scroll', () => {
+            headings.forEach(h => {
+                const rect = h.getBoundingClientRect()
+                const currLink = document.querySelector(`a[href="#${h.id}"]`)
+                if (!currLink) {
+                    return
+                }
+
+                if (rect.top <= 20) {
+                    contentLinks.forEach(link => {
+                        link.removeAttribute('aria-current')
+                    })
+                    currLink.ariaCurrent = true
+                } else {
+                    currLink.removeAttribute('aria-current')
+                }
+            })
+        })
     }
 });
