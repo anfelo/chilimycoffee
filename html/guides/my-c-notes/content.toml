@@ -8,7 +8,8 @@ chapters = [
     # INFO: Add the chapter titles here
     { title = "Introduction", slug = "intro" },
     { title = "Getting Started", slug = "getting-started" },
-    { title = "Managing Memory", slug = "managing-memory" }
+    { title = "Managing Memory", slug = "managing-memory" },
+    { title = "Linking Libraries", slug = "linking-libraries" }
 ]
 
 chapter_parts = [
@@ -22,4 +23,7 @@ chapter_parts = [
 
     # Managing Memory
     { title = "Stack vs. Heap", slug = "stack-vs-heap", chapter = "Managing Memory" },
+
+    # Linking Libraries
+    { title = "Liking Popular C Libraries", slug = "linking-popular-c-libraries", chapter = "Linking Libraries" },
 ]

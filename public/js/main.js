@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     return
                 }
 
-                if (rect.top <= 20) {
+                if (rect.top <= 40) {
                     contentLinks.forEach(link => {
                         link.removeAttribute('aria-current')
                     })

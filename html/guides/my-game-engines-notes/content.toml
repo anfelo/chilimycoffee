@@ -19,5 +19,6 @@ chapter_parts = [
     { title = "Getting Started", slug = "getting-started-with-raylib", chapter = "Raylib" },
 
     # OpenGL
-    { title = "What is OpenGL?", slug = "what-is-opengl", chapter = "OpenGL" }
+    { title = "What is OpenGL?", slug = "what-is-opengl", chapter = "OpenGL" },
+    { title = "Painting A Triangle", slug = "painting-a-triangle-with-opengl", chapter = "OpenGL" }
 ]

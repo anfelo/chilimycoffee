@@ -144,6 +144,7 @@ func GuidePart(c echo.Context) error {
 		Title           string
 		Chapters        []ChapterData
 		TableOfContents []ContentHeadings
+        PartTitle       string
 		Content         template.HTML
 	}
 
