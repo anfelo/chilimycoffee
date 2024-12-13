@@ -144,8 +144,10 @@ func GuidePart(c echo.Context) error {
 		Title           string
 		Chapters        []ChapterData
 		TableOfContents []ContentHeadings
-        PartTitle       string
+		PartTitle       string
 		Content         template.HTML
+		Prev            PartData
+		Next            PartData
 	}
 
 	guideSlug := c.Param("guide_slug")
@@ -200,9 +202,28 @@ func GuidePart(c echo.Context) error {
 	//      part 2.1
 	//      part 2.2
 	chaptersInfo := []ChapterData{}
+	partTitle := ""
+	prevPart := PartData{}
+	nextPart := PartData{}
 	for _, chapter := range guideConf.Chapters {
 		chapterParts := []PartData{}
-		for _, part := range guideConf.ChapterParts {
+		for j, part := range guideConf.ChapterParts {
+			if part.Slug == partSlug {
+				// TODO: Get part title
+				partTitle = part.Title
+
+				// TODO: Get prev and next parts
+				if j-1 >= 0 {
+					prevConfig := guideConf.ChapterParts[j-1]
+					prevPart = PartData{Title: prevConfig.Title, Path: fmt.Sprintf("/guides/%s/%s", guideSlug, prevConfig.Slug)}
+				}
+
+				if j+1 < len(guideConf.ChapterParts) {
+					nextConfig := guideConf.ChapterParts[j+1]
+					nextPart = PartData{Title: nextConfig.Title, Path: fmt.Sprintf("/guides/%s/%s", guideSlug, nextConfig.Slug)}
+				}
+			}
+
 			if part.Chapter == chapter.Title {
 				partData := PartData{
 					Title:    part.Title,
@@ -219,7 +240,10 @@ func GuidePart(c echo.Context) error {
 		Title:           guideTitle,
 		Chapters:        chaptersInfo,
 		TableOfContents: contentHeadings,
+		PartTitle:       partTitle,
 		Content:         template.HTML(contentHTML),
+		Prev:            prevPart,
+		Next:            nextPart,
 	})
 }
 

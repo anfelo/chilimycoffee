@@ -1,5 +1,3 @@
-# Player Ship
-
 The player ship in the traditional [Asteroids](<https://en.wikipedia.org/wiki/Asteroids_(video_game)>) game is just a triangular shaped object. It looks a bit like the cursor on a computer.
 
 [TODO]: Image of the player ship

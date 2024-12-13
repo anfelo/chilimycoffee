@@ -1,5 +1,3 @@
-# Creating The Game Project
-
 Now that we have a C/C++ compiler installed and Raylib ready to be used, we
 can finally start our project by creating a folder where the game will live.
 

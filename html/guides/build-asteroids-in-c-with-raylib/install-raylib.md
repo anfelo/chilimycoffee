@@ -1,5 +1,3 @@
-# Install Raylib
-
 We will be building the game with [Raylib](https://www.raylib.com/index.html) to
 focus on the game itself and not worry about all the low level plumbing that
 comes with trying opening a window and painting pixels into the screen.

@@ -1,5 +1,3 @@
-# Player Movement
-
 Now that we have a space ship, we can now give it some life and allow the player
 to move the ship around the screen.
 
@@ -168,5 +166,5 @@ void player_wrap(player_t *player) {
 ```
 
 In this function we check if the player ship has reach one of the limits in the 
-x and y axis and we update the position based on that, to wrap to the opposite side
+x and y axis and we update the position based on that, to wrap to the oposite side
 of the screen.

@@ -1,5 +1,3 @@
-# Setup Environment
-
 Before we start coding the actual game we need to make sure that we have all
 the tools in place, installed in our computer.
 

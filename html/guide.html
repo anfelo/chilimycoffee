@@ -24,7 +24,28 @@
     </aside>
 
     <div id="guide-content">
+        <h1>{{.PartTitle}}</h1>
+
         {{.Content}}
+
+        <div class="next-prev-buttons">
+            {{if .Prev.Title}}
+            <a href="{{.Prev.Path}}" class="secondary">
+                <i class="fa-solid fa-chevron-left"></i>
+                {{.Prev.Title}}
+            </a>
+            {{else}}
+            <span></span>
+            {{end}}
+            {{if .Next.Title}}
+            <a href="{{.Next.Path}}" class="secondary">
+                {{.Next.Title}}
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            {{else}}
+            <span></span>
+            {{end}}
+        </div>
     </div>
 
     {{if .TableOfContents}}
