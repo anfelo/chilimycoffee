@@ -72,6 +72,8 @@ typedef struct player {
 ...
 ```
 
+### Player Rotation
+
 Now, lets update the player rotation when the arrow keys are pressed. Make sure to also
 update the `player_draw` function so the ship is also drawn with the new rotation:
 
@@ -108,3 +110,63 @@ void player_update(player_t *player) {
     player.rotation += rotation;
 }
 ```
+
+The ship can rotate with the `RIGHT` and `LEFT` arrow keys but something is weird. We don't
+move in the direction the ship is pointing to, the ship moves up rotated. This is
+not the behavior that we want.
+
+Now that we have calculated the player rotation based on user input, we should move
+the player ship forward in the direction that the ship is pointing to.
+
+```c
+...
+void player_update(player_t *player) {
+    if (IsKeyDown(KEY_UP)) {
+        Vector2 player_facing_direction =
+            Vector2Rotate((Vector2){0, -1}, player.rotation * DEG2RAD);
+        Vector2 velocity = Vector2Scale(player_facing_direction, PLAYER_SPEED);
+        player.position = Vector2Add(player.position, velocity);
+    }
+
+    float rotation = (IsKeyDown(KEY_RIGHT) - IsKeyDown(KEY_LEFT)) * PLAYER_ROT_SPEED;
+    player.rotation += rotation;
+}
+```
+
+Here we just need to update the `player_update` function to calculate the player's facing direction and then use that vector to calculate the new velocity of the player.
+This should work because we update the player state and the `player_draw` just takes care of drawing the new state.
+
+### Wrap Player Position
+
+When the ship reaches the limit of the screen it should wrap to the other side of the screen. This is how the original game worked and we will implement the same.
+
+```c
+// This are some limits that we will check to wrap the player
+// You can add this to the player.h file
+#define FIELD_MIN_X (-PLAYER_SIZE)
+#define FIELD_MAX_X (SCREEN_WIDTH + PLAYER_SIZE)
+#define FIELD_MIN_Y (-PLAYER_SIZE)
+#define FIELD_MAX_Y (SCREEN_HEIGHT + PLAYER_SIZE)
+
+...
+
+// Add this one in the player.h file or keep it as a private(static) function
+// in the player.c file
+void player_wrap(player_t *player) {
+    if (player->position.x > FIELD_MAX_X) {
+        player->position.x = -PLAYER_SIZE;
+    } else if (player->position.x < FIELD_MIN_X) {
+        player->position.x = SCREEN_WIDTH + PLAYER_SIZE;
+    }
+
+    if (player->position.y > FIELD_MAX_Y) {
+        player->position.y = -PLAYER_SIZE;
+    } else if (player->position.y < FIELD_MIN_Y) {
+        player->position.y = SCREEN_HEIGHT + PLAYER_SIZE;
+    }
+}
+```
+
+In this function we check if the player ship has reach one of the limits in the 
+x and y axis and we update the position based on that, to wrap to the opposite side
+of the screen.
