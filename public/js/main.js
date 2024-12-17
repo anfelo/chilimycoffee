@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const headings = document.querySelectorAll("h1, h2, h3, h4")
-    const contentLinks = document.querySelectorAll("#contents-menu li a")
-    if (headings.length && contentLinks.length) {
-        document.addEventListener('scroll', () => {
+    document.addEventListener('scroll', () => {
+        const contentLinks = document.querySelectorAll("#contents-menu li a")
+        if (headings.length && contentLinks.length) {
             headings.forEach(h => {
                 const rect = h.getBoundingClientRect()
-                const currLink = document.querySelector(`a[href="#${h.id}"]`)
+                const currLink = document.querySelector(`#contents-menu a[href="#${h.id}"]`)
                 if (!currLink) {
                     return
                 }
@@ -68,6 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     currLink.removeAttribute('aria-current')
                 }
             })
-        })
-    }
+        }
+    })
 });

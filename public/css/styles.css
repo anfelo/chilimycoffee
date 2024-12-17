@@ -34,6 +34,12 @@ body {
   display: none;
 }
 
+@media (min-width: 1216px) {
+  .is-hidden-widescreen-only {
+    display: none;
+  }
+}
+
 /* Auth Pages */
 
 @media (min-width: 768px) {
@@ -50,6 +56,10 @@ body {
   gap: 2rem;
 }
 
+#contents-menu {
+  display: none;
+}
+
 #guide-menu {
   width: 100%;
 }
@@ -57,6 +67,10 @@ body {
 #guide-content {
   width: 100%;
   margin-bottom: 3rem;
+}
+
+#guide-content aside {
+  margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
 #guide-content .next-prev-buttons {
@@ -75,22 +89,29 @@ body {
     flex-direction: row;
   }
 
+  #guide-content {
+    width: calc(100% - 250px);
+  }
+
   #guide-menu {
     width: 250px;
-  }
-
-  #contents-menu {
-    width: 250px;
-  }
-
-  #guide-content {
-    width: calc(100% - 500px);
   }
 
   #guide-menu nav,
   #contents-menu nav {
     position: sticky;
     top: 2rem;
+  }
+}
+
+@media (min-width: 1216px) {
+  #contents-menu {
+    display: block;
+    width: 200px;
+  }
+
+  #guide-content {
+    width: calc(100% - 450px);
   }
 }
 
@@ -149,16 +170,16 @@ pre {
 }
 
 /* Main Menu */
-main > aside nav ul {
+main aside nav ul {
   border-left: var(--pico-border-width) solid var(--pico-muted-border-color);
 }
 
-main > aside nav ul:first-of-type {
+main aside nav ul:first-of-type {
   margin: 0;
   padding: 0;
 }
 
-main > aside {
+main aside {
   --pico-font-size: 16px;
   font-size: var(--pico-font-size);
 }
@@ -167,12 +188,12 @@ main > aside nav details[open] > summary {
   margin-bottom: calc(var(--pico-spacing) * 0.5);
 }
 
-main > aside nav details summary {
+main aside nav details summary {
   font-weight: 600;
   line-height: var(--pico-line-height);
 }
 
-main > aside nav summary {
+main aside nav summary {
   font-weight: 600;
   line-height: var(--pico-line-height);
   margin-bottom: calc(var(--pico-spacing) * 0.5);
@@ -197,7 +218,7 @@ main > aside nav ul li a:not([aria-current]):hover {
   border-color: var(--pico-secondary-underline);
 }
 
-main > aside nav ul li {
+main aside nav ul li {
   margin: 0;
   padding: calc(var(--pico-nav-element-spacing-vertical) * 0.25) 0;
 }
@@ -206,7 +227,7 @@ nav li :where(a, [role="link"]):not(:hover) {
   text-decoration: none;
 }
 
-main > aside nav ul li a {
+main aside nav ul li a {
   margin: 0;
   margin-left: calc(var(--pico-border-width) * -0.5);
   padding: 0;

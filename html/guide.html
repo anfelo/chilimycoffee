@@ -26,24 +26,35 @@
     <div id="guide-content">
         <h1>{{.PartTitle}}</h1>
 
+        <aside class="is-hidden-widescreen-only">
+            <nav>
+                <summary>Content</summary>
+                <ul>
+                    {{range $i, $heading := .TableOfContents}}
+                        <li><a href="#{{ $heading.ID }}" role="link" class="secondary">{{ $heading.Title }}</a></li>
+                    {{end}}
+                </ul>
+            </nav>
+        </aside>
+
         {{.Content}}
 
         <div class="next-prev-buttons">
             {{if .Prev.Title}}
-            <a href="{{.Prev.Path}}" class="secondary">
-                <i class="fa-solid fa-chevron-left"></i>
-                {{.Prev.Title}}
-            </a>
+                <a href="{{.Prev.Path}}" class="secondary">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    {{.Prev.Title}}
+                </a>
             {{else}}
-            <span></span>
+                <span></span>
             {{end}}
             {{if .Next.Title}}
-            <a href="{{.Next.Path}}" class="secondary">
-                {{.Next.Title}}
-                <i class="fa-solid fa-chevron-right"></i>
-            </a>
+                <a href="{{.Next.Path}}" class="secondary">
+                    {{.Next.Title}}
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
             {{else}}
-            <span></span>
+                <span></span>
             {{end}}
         </div>
     </div>
