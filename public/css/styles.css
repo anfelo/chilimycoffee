@@ -49,6 +49,13 @@ body {
   }
 }
 
+/* Guides List Page */
+
+.guides-list-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* Guide Page */
 .guide-layout {
   display: flex;

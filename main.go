@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/BurntSushi/toml"
 	"github.com/gomarkdown/markdown"
@@ -42,6 +43,7 @@ func main() {
 	templates["home"] = template.Must(template.ParseFiles("html/home.html", "html/layout.html"))
 	templates["login"] = template.Must(template.ParseFiles("html/login.html", "html/layout.html"))
 	templates["guide"] = template.Must(template.ParseFiles("html/guide.html", "html/layout.html"))
+	templates["guides-list"] = template.Must(template.ParseFiles("html/guides-list.html", "html/layout.html"))
 
 	e := echo.New()
 	e.Renderer = &TemplateRegistry{
@@ -61,6 +63,7 @@ func main() {
 	e.GET("/login", Login)
 	e.POST("/login", LoginSubmit)
 
+	e.GET("/guides", GuidesList)
 	e.GET("/guides/:guide_slug", Guide)
 	e.GET("/guides/:guide_slug/:part_slug", GuidePart)
 
@@ -106,6 +109,36 @@ type GuideConfig struct {
 	Description  string              `toml:"description"`
 	Chapters     []ChapterConfig     `toml:"chapters"`
 	ChapterParts []ChapterPartConfig `toml:"chapter_parts"`
+}
+
+func GuidesList(c echo.Context) error {
+	type GuidesListData struct {
+		Guides []GuideConfig
+		Total  int
+	}
+
+	guidesFiles, err := filepath.Glob("html/guides/*/content.toml")
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+
+	guidesConf := []GuideConfig{}
+	for _, guideFile := range guidesFiles {
+		var guideConf GuideConfig
+		_, err := toml.DecodeFile(guideFile, &guideConf)
+		if err != nil {
+			log.Fatal(err)
+			return err
+		}
+
+		guidesConf = append(guidesConf, guideConf)
+	}
+
+	return c.Render(http.StatusOK, "guides-list", GuidesListData{
+		Guides: guidesConf,
+		Total:  len(guidesConf),
+	})
 }
 
 func Guide(c echo.Context) error {

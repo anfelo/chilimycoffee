@@ -1,0 +1,23 @@
+{{define "title"}}
+chilimycoffee | guides list
+{{end}}
+
+{{define "content"}}
+<main class="container">
+    <h1>All Guides</h1>
+
+    <aside class="guides-list-header">
+        <p><b>Total:</b> {{.Total}}</p>
+    </aside>
+
+    {{range $i, $guide := .Guides}}
+        <article>
+            <h5>{{$guide.Title}}</h5>
+            <p>
+                <small>{{$guide.Title}}</small>
+            </p>
+            <a href="/guides/{{$guide.Slug}}">Read more</a>
+        </article>
+    {{end}}
+</main>
+{{end}}
