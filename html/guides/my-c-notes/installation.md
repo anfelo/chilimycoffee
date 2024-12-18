@@ -1,5 +1,3 @@
-# Installation
-
 ### macOS
 
 On macOS the C [compilers](/guides/build-your-own-interpreter/what-are-compilers)

@@ -1,5 +1,3 @@
-# What Is OpenGL?
-
 Is a specification developed and maintained by the [Khronos Group](https://www.khronos.org/).
 OpenGL specifies how should the functions be called and what should be the output. But OpenGL does not implement those functions. Is up to developers to create implementations that comply with this
 specification.

@@ -1,5 +1,3 @@
-# Why Raylib?
-
 Raylib is an amazing library that allows you to create games primarily in C
 and C++. However, there are other languages that have created bindings on top
 of it.
