@@ -114,11 +114,11 @@ body {
 @media (min-width: 1216px) {
   #contents-menu {
     display: block;
-    width: 200px;
+    width: 250px;
   }
 
   #guide-content {
-    width: calc(100% - 450px);
+    width: calc(100% - 500px);
   }
 }
 

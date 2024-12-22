@@ -178,6 +178,7 @@ func GuidePart(c echo.Context) error {
 		Chapters        []ChapterData
 		TableOfContents []ContentHeadings
 		PartTitle       string
+		ChapterTitle    string
 		Content         template.HTML
 		Prev            PartData
 		Next            PartData
@@ -236,15 +237,15 @@ func GuidePart(c echo.Context) error {
 	//      part 2.2
 	chaptersInfo := []ChapterData{}
 	partTitle := ""
+	chapterTitle := ""
 	prevPart := PartData{}
 	nextPart := PartData{}
 	for _, chapter := range guideConf.Chapters {
 		chapterParts := []PartData{}
 		for j, part := range guideConf.ChapterParts {
 			if part.Slug == partSlug {
-				// TODO: Get part title
 				partTitle = part.Title
-
+				chapterTitle = part.Chapter
 				// TODO: Get prev and next parts
 				if j-1 >= 0 {
 					prevConfig := guideConf.ChapterParts[j-1]
@@ -274,6 +275,7 @@ func GuidePart(c echo.Context) error {
 		Chapters:        chaptersInfo,
 		TableOfContents: contentHeadings,
 		PartTitle:       partTitle,
+		ChapterTitle:    chapterTitle,
 		Content:         template.HTML(contentHTML),
 		Prev:            prevPart,
 		Next:            nextPart,
