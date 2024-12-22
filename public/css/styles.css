@@ -52,8 +52,8 @@ body {
 /* Guides List Page */
 
 .guides-list-header {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Guide Page */
@@ -247,4 +247,15 @@ main aside nav ul li a {
 :where(nav li):before {
   float: left;
   content: "\200b";
+}
+
+/* Footer */
+
+.footer-divider {
+  margin-top: 4rem;
+}
+
+footer {
+  height: 100px;
+  font-size: 14px;
 }
