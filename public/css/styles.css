@@ -34,6 +34,16 @@ body {
   display: none;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-logo h3 {
+  margin: 0;
+}
+
 @media (min-width: 1216px) {
   .is-hidden-widescreen-only {
     display: none;
@@ -256,6 +266,6 @@ main aside nav ul li a {
 }
 
 footer {
-  height: 100px;
-  font-size: 14px;
+  height: 300px;
+  font-size: 12px;
 }

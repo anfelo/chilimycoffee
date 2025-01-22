@@ -168,3 +168,8 @@ void player_wrap(player_t *player) {
 In this function we check if the player ship has reach one of the limits in the 
 x and y axis and we update the position based on that, to wrap to the oposite side
 of the screen.
+
+### Acceleration and Deceleration
+
+Now that the player ship moves freely through the screen we can add a more realistic
+movement giving the player some acceleration and deceleration when moving.
