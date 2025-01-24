@@ -44,6 +44,10 @@ body {
   margin: 0;
 }
 
+.header-logo img {
+  margin-right: 8px;
+}
+
 @media (min-width: 1216px) {
   .is-hidden-widescreen-only {
     display: none;
@@ -267,5 +271,4 @@ main aside nav ul li a {
 
 footer {
   height: 300px;
-  font-size: 12px;
 }
