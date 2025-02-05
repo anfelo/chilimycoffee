@@ -147,7 +147,7 @@ func Guide(c echo.Context) error {
 	var guideConf GuideConfig
 	_, err := toml.DecodeFile(fmt.Sprintf("./html/guides/%s/content.toml", guideSlug), &guideConf)
 	if err != nil {
-		log.Fatal(err)
+		return c.Redirect(http.StatusNotFound, "/")
 	}
 
 	// TODO: Get first part slug. Test this scenario

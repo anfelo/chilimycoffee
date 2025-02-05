@@ -2,14 +2,14 @@ Is a specification developed and maintained by the [Khronos Group](https://www.k
 OpenGL specifies how should the functions be called and what should be the output. But OpenGL does not implement those functions. Is up to developers to create implementations that comply with this
 specification.
 
-The developers that are implementing the specification are usually the graphics cards manufacturers.This means that a graphics card can support the versions of OpenGL that are coded by the developers and when there is a bug on one of the functions, is usually the fault of developers that implement the specification.
+The developers that are implementing the specification are usually the graphics cards manufacturers. This means that a graphics card can support the versions of OpenGL that are coded by the developers and when there is a bug on one of the functions, is usually the fault of developers that implement the specification.
 
 ### Core-profile vs Immediate mode
 
 Immediate mode was the old way of OpenGL. It was easy to use but it abstracted many of the inner
 workings and calculations. Nowadays, the immediate mode is deprecated from version 3.2 due to it being extremely inefficient.
 
-The new way of OpenGL is called Core-profile and it is very powerfull. It gives back to the developers all the control but this also means that it is more difficult to use and learn.
+The new way of OpenGL is called Core-profile and it is very powerful. It gives back to the developers all the control but this also means that it is more difficult to use and learn.
 
 ### State machine
 
@@ -116,7 +116,7 @@ int main()
 
 ### Processing Input
 
-We can process use input checking if the specific key was pressed on the window context.
+We can process user input checking if the specific key was pressed on the window context.
 
 ```c
 void process_input(GLFWwindow *window)

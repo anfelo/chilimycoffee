@@ -1,5 +1,5 @@
 ### The Graphics Pipeline
-Most of the work of OpenGL is to convert 3D coordinates into colored 2D pixels in the screen.
+Most of the work of OpenGL is to convert 3D coordinates into colored 2D pixels into the screen.
 This is done through what is called the "Graphics Pipeline". The pipeline can be divided into
 two main parts. The first transforms the 3D coordinates into 2D coordinates and the second transforms the
 2D coordinates into colored pixels.
@@ -31,7 +31,7 @@ to calculate the final value of the color of each pixel. Here is where all the e
 
 ### Vertex Input
 All coordinates of a vertex need to be in 3D coordinates with x, y, and z. Additionally, these coordinates need to be normalized in a range
-between `1.0` and `-1.0` for OpenGL to be able to process them. This means that a vertex is composed of an x, y, and z components that are floats
+between `1.0` and `-1.0` for OpenGL to be able to process them. This means that a vertex is composed of x, y, and z components that are floats
 between `1.0` and `-1.0`, where `x: 0.0, y: 0.0, z: 0.0` is the origin. Anything that extends the ranges will be discarted by OpenGL.
 
 For example, if we want to create a triangle, we need 3 vertices:
@@ -156,7 +156,7 @@ void main()
 }
 ```
 
-The colors are in the form of RGBA (Red, Green, Blue, Alpha) and the values go from 0.0f to 1.0f 
+The colors are in the form of RGBA (Red, Green, Blue, Alpha) and the values go from `0.0f` to `1.0f`
 depending on the strength of each component. In this case, the color of the triangle with this fragment
 will be in a orange tone. We also set an output variable called `FragColor` that is assigned and used as 
 the output of the fragment.
@@ -303,7 +303,7 @@ Then, to draw a specific VBO, we just need to bind the VAO before calling the dr
 
 ### The Triangle
 
-Finally, we have every thing we need to paint the triangle. For this we can use the `glDrawArrays` 
+Finally, we have everything we need to paint the triangle. For this we can use the `glDrawArrays`
 function passing the `GL_TRIANGLES` option
 
 ```c
