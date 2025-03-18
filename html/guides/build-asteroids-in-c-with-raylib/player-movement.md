@@ -165,7 +165,7 @@ void player_wrap(player_t *player) {
 }
 ```
 
-In this function we check if the player ship has reach one of the limits in the 
+In this function we check if the player ship has reach one of the limits in the
 x and y axis and we update the position based on that, to wrap to the oposite side
 of the screen.
 
@@ -173,3 +173,55 @@ of the screen.
 
 Now that the player ship moves freely through the screen we can add a more realistic
 movement giving the player some acceleration and deceleration when moving.
+
+```c
+#define MAX_PLAYER_SPEED 250
+#define PLAYER_ACCELERATION 750
+#define PLAYER_DRAG 0.95f
+#define PLAYER_ROT_SPEED 360
+
+...
+
+void player_update(player_t *player) {
+    float frametime = GetFrameTime();
+    Vector2 player_facing_direction =
+        Vector2Rotate((Vector2){0, -1}, player.rotation * DEG2RAD);
+    float magSqr = Vector2LengthSqr(player.velocity);
+    float mag = sqrt(magSqr);
+
+    if (IsKeyDown(KEY_UP)) {
+      player.velocity = Vector2Add(
+          player.velocity, Vector2Scale(player_facing_direction,
+                                        PLAYER_ACCELERATION * frametime));
+      if (mag > MAX_PLAYER_SPEED) {
+        player.velocity = Vector2Scale(player.velocity, MAX_PLAYER_SPEED / mag);
+      }
+
+      player_wrap(&player);
+    } else {
+      if (mag > 0) {
+        player.velocity = Vector2Scale(player.velocity, PLAYER_DRAG);
+      }
+    }
+
+    player.position =
+        Vector2Add(player.position, Vector2Scale(player.velocity, frametime));
+
+    float x_input = (IsKeyDown(KEY_RIGHT) - IsKeyDown(KEY_LEFT));
+    player.rotation += x_input * PLAYER_ROT_SPEED * frametime;
+}
+
+...
+```
+
+The idea here is to increase the velocity of the player in steps of `PLAYER_ACCELERATION`
+while they keep pressing the forward key `KEY_UP` and we cap the velocity at a
+maximum speed `MAX_PLAYER_SPEED`. This should give the effect of having a slow start but
+quickly going full speed.
+
+When the player is not accelerating, we scale down the player velocity by a `PLAYER_DRAG`
+amount until the player ship is completly stopped.
+
+Finally, we update the player position that will be drawn at the end of the current frame.
+We can go crazy with the physics of the ship here but the idea is to keep it simple and
+enjoyable to move around. Later when we start spawning asteroids, we can tune the player movement to make it either a bit more difficult or easy to move around.

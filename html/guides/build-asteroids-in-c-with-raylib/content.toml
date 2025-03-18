@@ -25,4 +25,5 @@ chapter_parts = [
     # Asteroids Game
     { title = "Player Ship", slug = "player-ship", chapter = "Asteroids Game" },
     { title = "Player Movement", slug = "player-movement", chapter = "Asteroids Game" },
+    { title = "Shooting Lasers", slug = "shooting-lasers", chapter = "Asteroids Game" },
 ]
