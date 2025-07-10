@@ -1,0 +1,16 @@
+title = "Low Level Sweets"
+slug = "low-level-sweets"
+description = "TODO"
+# created_at = 2024-05-23T05:45:00Z
+# updated_at = 2024-05-23T05:45:00Z
+
+chapters = [
+    # INFO: Add the chapter titles here
+    { title = "Bit Manipulation", slug = "bit-manipulation" },
+]
+
+chapter_parts = [
+    # INFO: Add the chapter parts here, make sure to use the correct chapter title
+
+    { title = "Basics", slug = "bit-manipulation", chapter = "Bit Manipulation" },
+]
